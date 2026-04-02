@@ -1,53 +1,22 @@
-// PC Build Animation Steps
-const pcSteps = [
-    {
-        name: "Empty Case",
-        description: "Starting with an empty PC case",
-        image: "images/empty-case.jpg"
-    },
-    {
-        name: "Component Installation",
-        description: "Installing various components",
-        image: "images/components.jpg"
-    },
-    {
-        name: "Complete PC",
-        description: "Fully functional gaming PC ready!",
-        image: "images/complete-pc.jpg"
-    }
-];
-
-let currentStep = 0;
-
-function updatePCAnimation() {
-    const pcImage = document.getElementById('pc-image');
-    const stepText = document.getElementById('step-text');
-    
-    const step = pcSteps[currentStep];
-    
-    // Update image
-    pcImage.src = step.image;
-    
-    // Update text
-    stepText.textContent = step.name;
-    
-    // Move to next step
-    currentStep = (currentStep + 1) % pcSteps.length;
-}
-
-// Start animation immediately
-updatePCAnimation();
-
-// Update every 3 seconds
-setInterval(updatePCAnimation, 3000);
-
-// Assistant input functionality
-const assistantInput = document.querySelector('.assistant-input');
-if (assistantInput) {
-    assistantInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter' && this.value.trim()) {
-            console.log('Message sent:', this.value);
-            this.value = '';
+function handleKeyPress(event) {
+    if (event.key === 'Enter') {
+        const input = document.getElementById('assistantInput');
+        if (input.value.trim() !== '') {
+            alert('Thanks for your message! We\'ll get back to you soon.');
+            input.value = '';
         }
-    });
+    }
 }
+
+// Optional: Add simple animation on page load
+document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('header');
+    header.style.opacity = '0';
+    header.style.transform = 'translateY(-20px)';
+    header.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    
+    setTimeout(() => {
+        header.style.opacity = '1';
+        header.style.transform = 'translateY(0)';
+    }, 100);
+});
