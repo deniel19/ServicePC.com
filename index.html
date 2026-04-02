@@ -3,99 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ServicePC.com - Professional PC Repair & Support</title>
+    <title>💻 PC Repair Service</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <!-- HEADER -->
-    <header class="header">
-        <div class="header-content">
-            <h1 class="logo">PC Repair Service</h1>
-            <nav class="navbar">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#login" class="nav-link">Login</a>
-            </nav>
-        </div>
+    <header>
+        <h1>💻 PC Repair Service</h1>
+        <p>Professional PC Repair & Support</p>
     </header>
-
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="hero-content">
-            <h2>Professional PC Repair & Support</h2>
-            <p>Upgrade • Windows Install • Optimization • Data Recovery</p>
+    
+    <div class="services">
+        <h2>🔧 Our Services</h2>
+        <ul>
+            <li>✅ PC Upgrade (RAM, SSD, GPU)</li>
+            <li>✅ Windows Installation & Drivers</li>
+            <li>✅ PC Optimization (Gaming / Office)</li>
+            <li>✅ Data Recovery from damaged HDD</li>
+        </ul>
+    </div>
+    
+    <div class="reviews">
+        <h2>⭐ Reviews</h2>
+        <p>Average Score: 4.8/5</p>
+        
+        <div class="review">
+            <span class="star">★★★★★</span>
+            <p>"Excellent service! My PC runs like new. Highly recommended!"<br>- John D.</p>
         </div>
-    </section>
-
-    <!-- PC ANIMATION SECTION -->
-    <section class="pc-animation-section">
-        <div class="pc-animation-container">
-            <img id="pc-image" src="images/empty-case.jpg" alt="PC Build Animation" class="pc-image">
-            <div class="animation-step">
-                <span id="step-text">Empty Case</span>
-            </div>
+        
+        <div class="review">
+            <span class="star">★★★★★</span>
+            <p>"Fast and professional. Great customer support!"<br>- Sarah M.</p>
         </div>
-    </section>
-
-    <!-- SERVICES SECTION -->
-    <section class="services">
-        <h3>Services</h3>
-        <div class="services-list">
-            <div class="service-item">
-                <span class="checkmark">✓</span>
-                <p>PC Upgrade (RAM, SSD, GPU)</p>
-            </div>
-            <div class="service-item">
-                <span class="checkmark">✓</span>
-                <p>Windows Installation & Drivers</p>
-            </div>
-            <div class="service-item">
-                <span class="checkmark">✓</span>
-                <p>PC Optimization (Gaming / Office)</p>
-            </div>
-            <div class="service-item">
-                <span class="checkmark">✓</span>
-                <p>Data Recovery from damaged HDD</p>
-            </div>
+        
+        <div class="review">
+            <span class="star">★★★★☆</span>
+            <p>"Good service. Would use again."<br>- Mike T.</p>
         </div>
-    </section>
-
-    <!-- REVIEWS SECTION -->
-    <section class="reviews">
-        <h3>Reviews</h3>
-        <p class="average-score">Average Score: <strong>4.8/5</strong></p>
-        <div class="reviews-container">
-            <div class="review-card">
-                <div class="stars">★★★★★</div>
-                <p class="review-text">"Excellent service! My PC runs like new. Highly recommended!"</p>
-                <p class="review-author">- John D.</p>
-            </div>
-            <div class="review-card">
-                <div class="stars">★★★★★</div>
-                <p class="review-text">"Fast and professional. Great customer support!"</p>
-                <p class="review-author">- Sarah M.</p>
-            </div>
-            <div class="review-card">
-                <div class="stars">★★★★☆</div>
-                <p class="review-text">"Good service. Would use again."</p>
-                <p class="review-author">- Mike T.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ASSISTANT SECTION -->
-    <section class="assistant">
-        <div class="assistant-box">
-            <h4>Assistant</h4>
-            <input type="text" placeholder="Type here..." class="assistant-input">
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <p>&copy; 2026 ServicePC.com - Professional PC Repair & Support. All rights reserved.</p>
+    </div>
+    
+    <div class="assistant">
+        <h3>🤖 Assistant</h3>
+        <input type="text" id="assistantInput" placeholder="Type here..." onkeypress="handleKeyPress(event)">
+    </div>
+    
+    <footer>
+        © 2026 ServicePC.com - Professional PC Repair & Support. All rights reserved.
     </footer>
-
+    
     <script src="script.js"></script>
 </body>
 </html>
