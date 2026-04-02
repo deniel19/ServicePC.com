@@ -8,49 +8,57 @@
 </head>
 <body>
     <header>
-        <h1>💻 PC Repair Service</h1>
+        <div class="logo-text">💻 PC Repair Service</div>
         <p>Professional PC Repair & Support</p>
     </header>
-    
-    <div class="services">
-        <h2>🔧 Our Services</h2>
-        <ul>
-            <li>✅ PC Upgrade (RAM, SSD, GPU)</li>
-            <li>✅ Windows Installation & Drivers</li>
-            <li>✅ PC Optimization (Gaming / Office)</li>
-            <li>✅ Data Recovery from damaged HDD</li>
-        </ul>
+
+    <div class="image-slider" id="imageSlider">
+        <img src="image1.jpg" alt="PC Case - Empty Build" class="slide">
+        <img src="image2.jpg" alt="PC Build with RGB Lighting" class="slide">
+        <img src="image3.jpg" alt="GPU & Cooling System Closeup" class="slide">
     </div>
-    
-    <div class="reviews">
-        <h2>⭐ Reviews</h2>
-        <p>Average Score: 4.8/5</p>
-        
-        <div class="review">
-            <span class="star">★★★★★</span>
-            <p>"Excellent service! My PC runs like new. Highly recommended!"<br>- John D.</p>
-        </div>
-        
-        <div class="review">
-            <span class="star">★★★★★</span>
-            <p>"Fast and professional. Great customer support!"<br>- Sarah M.</p>
-        </div>
-        
-        <div class="review">
-            <span class="star">★★★★☆</span>
-            <p>"Good service. Would use again."<br>- Mike T.</p>
-        </div>
-    </div>
-    
-    <div class="assistant">
-        <h3>🤖 Assistant</h3>
-        <input type="text" id="assistantInput" placeholder="Type here..." onkeypress="handleKeyPress(event)">
-    </div>
-    
+
+    <main>
+        <section class="services">
+            <h2>🔧 Our Services</h2>
+            <ul>
+                <li>✅ PC Upgrade (RAM, SSD, GPU)</li>
+                <li>✅ Windows Installation & Drivers</li>
+                <li>✅ PC Optimization (Gaming / Office)</li>
+                <li>✅ Data Recovery from damaged HDD</li>
+            </ul>
+        </section>
+
+        <section class="reviews">
+            <h2>⭐ Reviews</h2>
+            <p>Average Score: 4.8/5</p>
+
+            <div class="review">
+                <span class="star">★★★★★</span>
+                <p>"Excellent service! My PC runs like new. Highly recommended!"<br><strong>- John D.</strong></p>
+            </div>
+
+            <div class="review">
+                <span class="star">★★★★★</span>
+                <p>"Fast and professional. Great customer support!"<br><strong>- Sarah M.</strong></p>
+            </div>
+
+            <div class="review">
+                <span class="star">★★★★☆</span>
+                <p>"Good service. Would use again."<br><strong>- Mike T.</strong></p>
+            </div>
+        </section>
+
+        <section class="assistant">
+            <h3>🤖 Assistant</h3>
+            <input type="text" id="assistantInput" placeholder="Type here..." onkeypress="handleKeyPress(event)">
+        </section>
+    </main>
+
     <footer>
         © 2026 ServicePC.com - Professional PC Repair & Support. All rights reserved.
     </footer>
-    
+
     <script src="script.js"></script>
 </body>
 </html>
