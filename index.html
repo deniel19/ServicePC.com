@@ -131,25 +131,313 @@
             background: #e8f4f8;
             border-radius: 8px;
             border-left: 4px solid #3498db;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
         }
 
         .review p {
             margin: 5px 0;
+            flex: 1;
         }
 
-        .assistant input {
+        .delete-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            margin-left: 10px;
+            display: none;
+        }
+
+        .delete-btn:hover {
+            background: #c0392b;
+        }
+
+        .chatbot-container {
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .chat-messages {
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            height: 200px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+        }
+
+        .chat-message {
+            margin: 8px 0;
+            padding: 8px;
+            border-radius: 5px;
+            word-wrap: break-word;
+        }
+
+        .user-msg {
+            background: #3498db;
+            color: white;
+            text-align: right;
+            margin-left: 20%;
+        }
+
+        .bot-msg {
+            background: #95a5a6;
+            color: white;
+            margin-right: 20%;
+        }
+
+        .chat-input-group {
+            display: flex;
+            gap: 5px;
+        }
+
+        .chat-input-group input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .chat-input-group button {
+            padding: 8px 15px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .chat-input-group button:hover {
+            background: #2980b9;
+        }
+
+        /* MODAL LOGIN */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .modal-content h2 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .modal-content input {
             width: 100%;
             padding: 10px;
+            margin-bottom: 15px;
             border: 1px solid #ddd;
-            border-radius: 6px;
+            border-radius: 5px;
             font-size: 16px;
-            transition: border-color 0.3s;
         }
 
-        .assistant input:focus {
-            outline: none;
-            border-color: #3498db;
-            box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+        .modal-content button {
+            width: 100%;
+            padding: 10px;
+            background: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .modal-content button:hover {
+            background: #229954;
+        }
+
+        .error-msg {
+            color: #e74c3c;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        /* ADMIN PANEL */
+        .admin-panel {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            overflow-y: auto;
+        }
+
+        .admin-panel.active {
+            display: block;
+        }
+
+        .admin-header {
+            background: #3498db;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .admin-header h1 {
+            margin: 0;
+        }
+
+        .close-admin {
+            background: white;
+            color: #3498db;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .admin-content {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .admin-section {
+            background: #ecf0f1;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        .admin-section h2 {
+            color: #3498db;
+            margin-bottom: 15px;
+        }
+
+        .chat-history {
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .chat-entry {
+            padding: 10px;
+            margin: 5px 0;
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            border-radius: 3px;
+        }
+
+        .chat-entry strong {
+            color: #2c3e50;
+        }
+
+        /* SUPER ADMIN PANEL (ASCUNS) */
+        .super-admin-panel {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            overflow-y: auto;
+        }
+
+        .super-admin-panel.active {
+            display: block;
+        }
+
+        .super-admin-header {
+            background: #c0392b;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .super-admin-header h1 {
+            margin: 0;
+        }
+
+        .close-super-admin {
+            background: white;
+            color: #c0392b;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .super-admin-content {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .super-admin-section {
+            background: #ecf0f1;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        .super-admin-section h2 {
+            color: #c0392b;
+            margin-bottom: 15px;
+        }
+
+        .admin-search {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .search-results {
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .search-result {
+            padding: 10px;
+            background: #e8f4f8;
+            margin: 5px 0;
+            border-radius: 3px;
+            border-left: 4px solid #c0392b;
         }
 
         footer {
@@ -161,6 +449,25 @@
             border-top: 1px solid #ddd;
             background: #f8f9fa;
             border-radius: 0 0 10px 10px;
+        }
+
+        .admin-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: none;
+            z-index: 500;
+        }
+
+        .admin-btn:hover {
+            background: #2980b9;
         }
     </style>
 </head>
@@ -192,24 +499,39 @@
             <p>Average Score: 4.8/5</p>
 
             <div class="review">
-                <span class="star">★★★★★</span>
-                <p>"Excellent service! My PC runs like new."Highly recommended!"<br><strong>- John D.</strong></p>
+                <div>
+                    <span class="star">★★★★★</span>
+                    <p>"Excellent service! My PC runs like new. Highly recommended!"<br><strong>- John D.</strong></p>
+                </div>
+                <button class="delete-btn" onclick="deleteReview(0)">Delete</button>
             </div>
 
             <div class="review">
-                <span class="star">★★★★★</span>
-                <p>"Fast and professional. Great customer support!"<br><strong>- Sarah M.</strong></p>
+                <div>
+                    <span class="star">★★★★★</span>
+                    <p>"Fast and professional. Great customer support!"<br><strong>- Sarah M.</strong></p>
+                </div>
+                <button class="delete-btn" onclick="deleteReview(1)">Delete</button>
             </div>
 
             <div class="review">
-                <span class="star">★★★★☆</span>
-                <p>"Good service. Would use again."<br><strong>- Mike T.</strong></p>
+                <div>
+                    <span class="star">★★★★☆</span>
+                    <p>"Good service. Would use again."<br><strong>- Mike T.</strong></p>
+                </div>
+                <button class="delete-btn" onclick="deleteReview(2)">Delete</button>
             </div>
         </section>
 
         <section class="assistant">
-            <h3>🤖 Assistant</h3>
-            <input type="text" id="assistantInput" placeholder="Type here..." onkeypress="handleKeyPress(event)">
+            <h3>🤖 Chatbot Assistant</h3>
+            <div class="chatbot-container">
+                <div class="chat-messages" id="chatMessages"></div>
+                <div class="chat-input-group">
+                    <input type="text" id="chatInput" placeholder="Type your message...">
+                    <button onclick="sendMessage()">Send</button>
+                </div>
+            </div>
         </section>
     </main>
 
@@ -217,13 +539,101 @@
         © 2026 ServicePC.com - Professional PC Repair & Support. All rights reserved.
     </footer>
 
+    <!-- ADMIN BUTTON (NORMAL) -->
+    <button class="admin-btn" id="adminBtn" onclick="showAdminLogin()">👤 Admin</button>
+
+    <!-- LOGIN MODAL (NORMAL ADMIN) -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <h2>👤 Admin Login</h2>
+            <div class="error-msg" id="errorMsg"></div>
+            <input type="text" id="adminUsername" placeholder="Username">
+            <input type="password" id="adminPassword" placeholder="Password">
+            <button onclick="loginAdmin()">Login</button>
+        </div>
+    </div>
+
+    <!-- ADMIN PANEL (NORMAL) -->
+    <div class="admin-panel" id="adminPanel">
+        <div class="admin-header">
+            <h1>👤 Admin Panel</h1>
+            <button class="close-admin" onclick="logoutAdmin()">Logout</button>
+        </div>
+        <div class="admin-content">
+            <div class="admin-section">
+                <h2>💬 Chatbot Conversations</h2>
+                <div class="chat-history" id="chatHistory"></div>
+            </div>
+
+            <div class="admin-section">
+                <h2>⭐ Manage Reviews</h2>
+                <div id="reviewsManagement"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SUPER ADMIN PANEL (ASCUNS) -->
+    <div class="super-admin-panel" id="superAdminPanel">
+        <div class="super-admin-header">
+            <h1>🔐 Super Admin Panel</h1>
+            <button class="close-super-admin" onclick="logoutSuperAdmin()">Logout</button>
+        </div>
+        <div class="super-admin-content">
+            <div class="super-admin-section">
+                <h2>🔍 Advanced Search</h2>
+                <input type="text" class="admin-search" id="superAdminSearch" placeholder="Search everything...">
+                <div class="search-results" id="superSearchResults"></div>
+            </div>
+
+            <div class="super-admin-section">
+                <h2>💬 All Conversations</h2>
+                <div class="chat-history" id="superChatHistory"></div>
+            </div>
+
+            <div class="super-admin-section">
+                <h2>⭐ All Reviews</h2>
+                <div id="superReviewsManagement"></div>
+            </div>
+
+            <div class="super-admin-section">
+                <h2>🔧 System Info</h2>
+                <p><strong>Access Code:</strong> X9K2-ADMIN-ENTRY</p>
+                <p><strong>Admin Password:</strong> dickoy2024</p>
+                <button onclick="clearAllData()" style="background: #e74c3c; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer;">Clear All Data</button>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // ========== VARIABLES ==========
+        const ADMIN_USERNAME = "dickoy";
+        const ADMIN_PASSWORD = "dickoy2024";
+        const SUPER_ADMIN_CODE = "X9K2-ADMIN-ENTRY";
+        const SUPER_ADMIN_PASSWORD = "SuperAdmin@2024";
+
+        let isAdmin = false;
+        let isSuperAdmin = false;
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
         const totalSlides = slides.length;
 
+        // Initialize localStorage
+        function initializeStorage() {
+            if (!localStorage.getItem('chatMessages')) {
+                localStorage.setItem('chatMessages', JSON.stringify([]));
+            }
+            if (!localStorage.getItem('reviews')) {
+                localStorage.setItem('reviews', JSON.stringify([
+                    { name: 'John D.', stars: 5, text: 'Excellent service! My PC runs like new. Highly recommended!' },
+                    { name: 'Sarah M.', stars: 5, text: 'Fast and professional. Great customer support!' },
+                    { name: 'Mike T.', stars: 4, text: 'Good service. Would use again.' }
+                ]));
+            }
+        }
+
+        // ========== IMAGE SLIDER ==========
         function showSlide(index) {
-            slides.forEach((slide, i) => {
+            slides.forEach((slide) => {
                 slide.classList.remove('active');
             });
             slides[index].classList.add('active');
@@ -234,34 +644,295 @@
             showSlide(currentSlide);
         }
 
-        // Start the slideshow
         showSlide(currentSlide);
         setInterval(nextSlide, 5000);
 
-        function handleKeyPress(event) {
-            if (event.key === 'Enter') {
-                const input = document.getElementById('assistantInput');
-                if (input.value.trim() !== '') {
-                    alert('Thanks for your message! We’ll get back to you soon.');
-                    input.value = '';
+        // ========== CHATBOT ==========
+        const botResponses = {
+            'hello': 'Hi! 👋 How can I help you with your PC today?',
+            'help': 'I can help you with: PC upgrades, Windows installation, optimization, and data recovery. What do you need?',
+            'price': 'For pricing info, please contact us directly!',
+            'upgrade': 'We offer RAM, SSD, and GPU upgrades. What component are you interested in?',
+            'windows': 'We can install Windows and drivers for you. Would you like to schedule a service?',
+            'repair': 'We repair PCs! Tell us what\'s wrong and we\'ll help.',
+            'default': 'I\'m here to help! Ask me about our services or type "help" for more info.'
+        };
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (message === '') return;
+
+            // Add user message
+            addChatMessage(message, 'user');
+            input.value = '';
+
+            // Save to localStorage
+            const chatMessages = JSON.parse(localStorage.getItem('chatMessages'));
+            chatMessages.push({ 
+                type: 'user', 
+                message: message, 
+                timestamp: new Date().toLocaleString(),
+                username: 'User'
+            });
+            localStorage.setItem('chatMessages', JSON.stringify(chatMessages));
+
+            // Bot response
+            setTimeout(() => {
+                const lowerMessage = message.toLowerCase();
+                let response = botResponses['default'];
+                
+                for (const key in botResponses) {
+                    if (lowerMessage.includes(key)) {
+                        response = botResponses[key];
+                        break;
+                    }
                 }
+
+                addChatMessage(response, 'bot');
+
+                // Save bot response
+                chatMessages.push({ 
+                    type: 'bot', 
+                    message: response, 
+                    timestamp: new Date().toLocaleString(),
+                    username: 'Bot'
+                });
+                localStorage.setItem('chatMessages', JSON.stringify(chatMessages));
+            }, 500);
+        }
+
+        function addChatMessage(message, type) {
+            const chatMessages = document.getElementById('chatMessages');
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `chat-message ${type}-msg`;
+            msgDiv.textContent = message;
+            chatMessages.appendChild(msgDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        document.getElementById('chatInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') sendMessage();
+        });
+
+        // ========== NORMAL ADMIN ==========
+        function showAdminLogin() {
+            document.getElementById('loginModal').classList.add('active');
+            document.getElementById('errorMsg').textContent = '';
+        }
+
+        function loginAdmin() {
+            const username = document.getElementById('adminUsername').value;
+            const password = document.getElementById('adminPassword').value;
+
+            if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+                isAdmin = true;
+                document.getElementById('loginModal').classList.remove('active');
+                document.getElementById('adminPanel').classList.add('active');
+                document.getElementById('adminUsername').value = '';
+                document.getElementById('adminPassword').value = '';
+                loadAdminPanel();
+                showDeleteButtons();
+            } else {
+                document.getElementById('errorMsg').textContent = '❌ Invalid credentials!';
+                document.getElementById('adminUsername').value = '';
+                document.getElementById('adminPassword').value = '';
             }
         }
 
-        // Add subtle fade-in on load
-        document.addEventListener('DOMContentLoaded', function() {
-            const sections = document.querySelectorAll('section');
-            sections.forEach((section, index) => {
-                section.style.opacity = '0';
-                section.style.transform = 'translateY(20px)';
-                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        function logoutAdmin() {
+            isAdmin = false;
+            document.getElementById('adminPanel').classList.remove('active');
+            hideDeleteButtons();
+        }
 
-                setTimeout(() => {
-                    section.style.opacity = '1';
-                    section.style.transform = 'translateY(0)';
-                }, 100 + (index * 50));
-            });
+        // ========== SUPER ADMIN (ASCUNS) ==========
+        // Activare prin Ctrl + Alt + X
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.altKey && e.key === 'X') {
+                showSuperAdminLogin();
+            }
         });
+
+        function showSuperAdminLogin() {
+            const password = prompt('🔐 Enter Super Admin Password:');
+            if (password === SUPER_ADMIN_PASSWORD) {
+                isSuperAdmin = true;
+                document.getElementById('superAdminPanel').classList.add('active');
+                loadSuperAdminPanel();
+            } else if (password !== null) {
+                alert('❌ Invalid password!');
+            }
+        }
+
+        function logoutSuperAdmin() {
+            isSuperAdmin = false;
+            document.getElementById('superAdminPanel').classList.remove('active');
+        }
+
+        function loadAdminPanel() {
+            loadChatHistory();
+            loadReviewsManagement();
+        }
+
+        function loadChatHistory() {
+            const chatMessages = JSON.parse(localStorage.getItem('chatMessages'));
+            const chatHistory = document.getElementById('chatHistory');
+            chatHistory.innerHTML = '';
+
+            if (chatMessages.length === 0) {
+                chatHistory.innerHTML = '<p>No conversations yet.</p>';
+                return;
+            }
+
+            chatMessages.forEach(msg => {
+                const entry = document.createElement('div');
+                entry.className = 'chat-entry';
+                entry.innerHTML = `<strong>${msg.username}:</strong> ${msg.message}<br><small>${msg.timestamp}</small>`;
+                chatHistory.appendChild(entry);
+            });
+        }
+
+        function loadReviewsManagement() {
+            const reviews = JSON.parse(localStorage.getItem('reviews'));
+            const reviewsDiv = document.getElementById('reviewsManagement');
+            reviewsDiv.innerHTML = '';
+
+            reviews.forEach((review, index) => {
+                const reviewDiv = document.createElement('div');
+                reviewDiv.className = 'review';
+                reviewDiv.innerHTML = `
+                    <div>
+                        <strong>${review.name}</strong> - ${'⭐'.repeat(review.stars)}<br>
+                        ${review.text}
+                    </div>
+                    <button class="delete-btn" style="display: block;" onclick="deleteReviewAdmin(${index})">Delete</button>
+                `;
+                reviewsDiv.appendChild(reviewDiv);
+            });
+        }
+
+        function loadSuperAdminPanel() {
+            loadSuperChatHistory();
+            loadSuperReviewsManagement();
+        }
+
+        function loadSuperChatHistory() {
+            const chatMessages = JSON.parse(localStorage.getItem('chatMessages'));
+            const chatHistory = document.getElementById('superChatHistory');
+            chatHistory.innerHTML = '';
+
+            if (chatMessages.length === 0) {
+                chatHistory.innerHTML = '<p>No conversations yet.</p>';
+                return;
+            }
+
+            chatMessages.forEach(msg => {
+                const entry = document.createElement('div');
+                entry.className = 'chat-entry';
+                entry.innerHTML = `<strong>${msg.username}:</strong> ${msg.message}<br><small>${msg.timestamp}</small>`;
+                chatHistory.appendChild(entry);
+            });
+        }
+
+        function loadSuperReviewsManagement() {
+            const reviews = JSON.parse(localStorage.getItem('reviews'));
+            const reviewsDiv = document.getElementById('superReviewsManagement');
+            reviewsDiv.innerHTML = '';
+
+            reviews.forEach((review, index) => {
+                const reviewDiv = document.createElement('div');
+                reviewDiv.className = 'review';
+                reviewDiv.innerHTML = `
+                    <div>
+                        <strong>${review.name}</strong> - ${'⭐'.repeat(review.stars)}<br>
+                        ${review.text}
+                    </div>
+                    <button class="delete-btn" style="display: block;" onclick="deleteReviewSuper(${index})">Delete</button>
+                `;
+                reviewsDiv.appendChild(reviewDiv);
+            });
+        }
+
+        function deleteReview(index) {
+            if (!isAdmin) return;
+            const reviews = JSON.parse(localStorage.getItem('reviews'));
+            reviews.splice(index, 1);
+            localStorage.setItem('reviews', JSON.stringify(reviews));
+            location.reload();
+        }
+
+        function deleteReviewAdmin(index) {
+            const reviews = JSON.parse(localStorage.getItem('reviews'));
+            reviews.splice(index, 1);
+            localStorage.setItem('reviews', JSON.stringify(reviews));
+            loadReviewsManagement();
+        }
+
+        function deleteReviewSuper(index) {
+            const reviews = JSON.parse(localStorage.getItem('reviews'));
+            reviews.splice(index, 1);
+            localStorage.setItem('reviews', JSON.stringify(reviews));
+            loadSuperReviewsManagement();
+        }
+
+        function showDeleteButtons() {
+            document.querySelectorAll('.delete-btn').forEach(btn => {
+                btn.style.display = 'block';
+            });
+        }
+
+        function hideDeleteButtons() {
+            document.querySelectorAll('.delete-btn').forEach(btn => {
+                btn.style.display = 'none';
+            });
+        }
+
+        // ========== SUPER ADMIN SEARCH ==========
+        document.getElementById('superAdminSearch').addEventListener('keyup', function() {
+            const searchTerm = this.value.toLowerCase();
+            const searchResults = document.getElementById('superSearchResults');
+            searchResults.innerHTML = '';
+
+            if (searchTerm === '') return;
+
+            // Search in chat messages
+            const chatMessages = JSON.parse(localStorage.getItem('chatMessages'));
+            chatMessages.forEach(msg => {
+                if (msg.message.toLowerCase().includes(searchTerm)) {
+                    searchResults.innerHTML += `<div class="search-result"><strong>${msg.username}:</strong> ${msg.message}</div>`;
+                }
+            });
+
+            // Search in reviews
+            const reviews = JSON.parse(localStorage.getItem('reviews'));
+            reviews.forEach(review => {
+                if (review.text.toLowerCase().includes(searchTerm) || review.name.toLowerCase().includes(searchTerm)) {
+                    searchResults.innerHTML += `<div class="search-result"><strong>${review.name}:</strong> ${review.text}</div>`;
+                }
+            });
+
+            if (searchResults.innerHTML === '') {
+                searchResults.innerHTML = '<p>No results found.</p>';
+            }
+        });
+
+        function clearAllData() {
+            if (confirm('⚠️ Are you sure? This will delete ALL data!')) {
+                localStorage.clear();
+                alert('✅ All data cleared!');
+                location.reload();
+            }
+        }
+
+        // Show admin button after 2 seconds
+        setTimeout(() => {
+            document.getElementById('adminBtn').style.display = 'block';
+        }, 2000);
+
+        // Initialize
+        initializeStorage();
     </script>
 </body>
 </html>
